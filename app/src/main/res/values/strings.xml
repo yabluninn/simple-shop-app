@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">shop</string>
+
+    <string name="sign_username_hint">Username</string>
+    <string name="sign_email_hint">Email</string>
+    <string name="sign_password_hint">Password</string>
+    <string name="sign_create_button">Sign up</string>
+
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Log in</string>
+</resources>
