@@ -33,8 +33,8 @@ class LoginActivity : AppCompatActivity() {
                 val db = DatabaseHandler(this, null);
                 val isAuth = db.getUser(username, password);
                 if (isAuth){
-                    // Show home activity
-                    Toast.makeText(this, "Вы вошли в систему!", Toast.LENGTH_LONG).show();
+                    val intent = Intent(this, ItemsActivity::class.java);
+                    startActivity(intent);
                 }
                 else{
                     // Error message
