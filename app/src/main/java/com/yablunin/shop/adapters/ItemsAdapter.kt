@@ -2,13 +2,16 @@ package com.yablunin.shop.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yablunin.shop.Item
+import com.yablunin.shop.ItemActivity
 import com.yablunin.shop.R
 
 class ItemsAdapter (val items: List<Item>, val context: Context): RecyclerView.Adapter<ItemsAdapter.MyViewHolder>(){
@@ -19,6 +22,8 @@ class ItemsAdapter (val items: List<Item>, val context: Context): RecyclerView.A
         val shortDescr: TextView = view.findViewById(R.id.item_short_descr);
         val longDescr: TextView = view.findViewById(R.id.item_long_descr);
         val price: TextView = view.findViewById(R.id.item_price);
+
+        val button: Button = view.findViewById(R.id.item_more_button);
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -44,5 +49,15 @@ class ItemsAdapter (val items: List<Item>, val context: Context): RecyclerView.A
         )
 
         holder.image.setImageResource(imageId);
+
+        holder.button.setOnClickListener {
+            val intent = Intent(context, ItemActivity::class.java);
+
+            intent.putExtra("itemTitle", items[position].title);
+            intent.putExtra("itemLongDescr", items[position].longDescr);
+            intent.putExtra("itemPrice", items[position].price);
+
+            context.startActivity(intent);
+        }
     }
 }
